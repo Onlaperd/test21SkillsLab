@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> -Login- </title>
+    <link rel="icon" type="image/png" href="/frontend/resources/logo.png">
+    <link rel="stylesheet" href="/frontend/css/login.css">
+</head>
+<body>
+    <main class="login-layout">
+        <div class="login-container">
+            <h2>Увійти</h2>
+            <p class="login-subtitle">Зайдіть до свого облікового запису</p>
+
+            <form action="/login" method="POST" class="login-form">
+                <div class="inputGroup">
+                    <label for="username">Ім'я<span class="required">*</span></label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Введіть своє ім'я"
+                    >
+                </div>
+                <div class="inputGroup">
+                    <label for="secondname">Прізвище<span class="required">*</span></label>
+                    <input
+                        type="text"
+                        id="secondname"
+                        name="secondname"
+                        placeholder="Введіть своє прізвище"
+                    >
+                </div>
+
+                <div class="inputGroup">
+                    <label for="password">Пароль<span class="required">*</span></label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Введіть свій пароль"
+                    >
+                </div>
+
+                <button type="submit">Увійти</button>
+            </form>
+
+            <div class="login-link">
+                Немаєте облікового запису? <a href="/frontend/register.html"> Зареєструватися тут.</a>
+            </div>
+        </div>
+        <aside class="login-visual">
+            <div class="hero-sphere">
+                <img src="/frontend/resources/logo.png" alt="Logo">
+            </div>
+            <h1>Вітаємо знову.</h1>
+            <p>Ваш наступний крок починається тут.</p>
+        </aside>
+    </main>
+    <script src="/frontend/login.js"></script>
+</body>
+</html>

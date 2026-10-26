@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> -Register- </title>
+    <link rel="icon" type="image/png" href="/frontend/resources/logo.png">
+    <link rel="stylesheet" href="/frontend/css/register.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Реєстрація
+            <br>
+            <p class="register-subtitle">Створіть свій обліковий запис</p>
+        </h2>
+        <form action="/register" class="register-form" method="POST">
+            <div class="inputGroup">
+                <label for="name">Ім'я<span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Введіть своє ім'я">
+            </div>
+            
+            <div class="inputGroup">
+                <label for="lastname">Прізвище<span class="required">*</span></label>
+                <input type="text" id="lastname" name="lastname" placeholder="Введіть своє прізвище">
+            </div>  
+            
+            <div class="inputGroup">
+                <label for="password">Пароль<span class="required">*</span></label>
+                <input type="password" id="password" name="password" placeholder="Введіть свій пароль">
+            </div>
+
+            <div class="inputGroup">
+                <label for="class">Клас<span class="required">*</span></label>
+                <input type="text" id="class" name="class" placeholder="Введіть свій клас (наприклад, 10A)">
+            </div>
+
+            <div class="inputGroup">
+                <label for="school">Школа<span class="required">*</span></label>
+                <input type="text" id="school" name="school" placeholder="Введіть свою школу">
+            </div>
+            
+            <button type="submit">Зареєструватися</button>
+        </form>
+        <div class="login-link">
+            Вже маєте обліковий запис? <a href="/frontend/login.html"> Увійти тут.</a>
+        </div>
+    </div>  
+    <div class="logoEtc">
+
+        <div class="hero-sphere">
+            <img src="/frontend/resources/logo.png" alt="Logo">
+        </div>
+
+        <h1>Вітаємо в <br> 21 Skills Lab</h1>
+        <p>Створіть свій обліковий запис і черпайте знання</p>
+    </div>
+    <script src="/frontend/register.js"></script>
+</body>
+</html>

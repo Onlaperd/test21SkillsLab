@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль | 21 Skills Lab</title>
+    <link rel="stylesheet" href="/frontend/css/userProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="profile-layout">
+
+        <aside class="sidebar" id="sidebar">
+            <a href="/frontend/index.html" class="brand">
+                <div class="brand-logo">21</div>
+                <div class="brand-text">
+                    <strong>Skills Lab</strong>
+                    <span>Особистий кабінет</span>
+                </div>
+            </a>
+
+            <div class="sidebar-user">
+                <div class="avatar">Ю</div>
+                <div class="user-details">
+                    <strong id="sidebarName">Юрій</strong>
+                    <span>Учень</span>
+                </div>
+            </div>
+
+            <div class="nav-label">ОСНОВНЕ</div>
+
+            <nav class="navigation">
+                <button class="nav-item active" data-page="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Головна</span>
+                </button>
+
+                <button class="nav-item" data-page="grades">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Мій табель</span>
+                </button>
+
+                <button class="nav-item" data-page="calendar">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>Календар тренінгів</span>
+                </button>
+
+                <button class="nav-item" data-page="news">
+                    <i class="fa-regular fa-newspaper"></i>
+                    <span>Новини</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="nav-label">АКАУНТ</div>
+
+                <button class="nav-item" data-page="settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Налаштування</span>
+                </button>
+
+                <button class="nav-item logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Вийти</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <span>© 2026 21 Skills Lab</span>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <main class="main-content">
+            <header class="topbar">
+                <button class="icon-button menu-toggle" id="menuToggle"
+                        aria-label="Відкрити меню">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Особистий кабінет</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong id="currentPageName">Головна</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <button class="icon-button" data-page="news"
+                            aria-label="Новини">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <button class="profile-mini" data-page="settings">
+                        <div class="avatar small">Ю</div>
+                        <span id="topbarName">Юрій</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="page-container">
+
+                <!-- ГОЛОВНА -->
+                <section class="page-section active" id="page-dashboard">
+                    <div class="welcome-banner">
+                        <div class="welcome-content">
+                            <span class="eyebrow">ТВІЙ ОСОБИСТИЙ ПРОСТІР</span>
+                            <h1>Привіт, <span id="welcomeName">Юрію</span>! 👋</h1>
+                            <p>
+                                Відстежуй свій прогрес, переглядай оцінки
+                                та не пропускай цікаві тренінги.
+                            </p>
+                            <button class="primary-button" data-page="grades">
+                                Переглянути табель
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="welcome-decoration">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div class="decoration-orb"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Твоя статистика</h2>
+                            <p>Коротко про твої результати</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <span>Треніннгів Відвідано</span>
+                            <strong>6</strong>
+                            <small>За весь час</small>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <span>Навичок</span>
+                            <strong id="learnedSkills">3</strong>
+                            <small>Вивчено</small>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon cyan">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <span>Навичок</span>
+                            <strong id="practicedSkills">2</strong>
+                            <small>Попрактиковано</small>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon pink">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                            <span>Навичок</span>
+                            <strong id="sharedSkills">0</strong>
+                            <small>Поширено</small>
+                        </article>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="content-card">
+                            <div class="card-heading">
+                                <div>
+                                    <h3>Останні тренінги</h3>
+                                    <p>Останні тренінги на яких ти був</p>
+                                </div>
+                                <button class="text-button" data-page="grades">
+                                    Усі тренінги <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="recent-grades" id="recentGrades"></div>
+                        </div>
+
+                        <div class="content-card">
+                            <div class="card-heading">
+                                <div>
+                                    <h3>Найближчі тренінги</h3>
+                                    <p>Заплановані події</p>
+                                </div>
+                                <button class="text-button" data-page="calendar">
+                                    Усі події
+                                </button>
+                            </div>
+
+                            <div class="upcoming-events" id="upcomingEvents"></div>
+                        </div>
+                    </div>
+
+                    <div class="content-card news-preview">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Останні новини</h3>
+                                <p>Що нового у 21 Skills Lab</p>
+                            </div>
+                            <button class="text-button" data-page="news">
+                                Усі новини <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="news-grid" id="dashboardNews"></div>
+                    </div>
+                </section>
+
+                <!-- ТАБЕЛЬ -->
+                <section class="page-section" id="page-grades">
+                    <div class="page-heading">
+                        <div>
+                            <span class="eyebrow">ТВОЇ КОМПЕТЕНЦІЇ</span>
+                            <h1>Мій табель</h1>
+                            <p>Відстежуй, що ти вивчив, практикував і чим поділився.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card skills-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Табель навичок</h3>
+                                <p>Твій прогрес у 21 Skills Lab</p>
+                            </div>
+                            <span class="skills-count">6 навичок</span>
+                        </div>
+
+                        <div class="skills-table-wrapper">
+                            <table class="skills-table">
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th>Learned</th>
+                                        <th>Practiced</th>
+                                        <th>Shared</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="skillsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="skills-legend">
+                            <span><b class="status-symbol completed">✓</b> Виконано</span>
+                            <span><b class="status-symbol not-completed">×</b> Ще не виконано</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- КАЛЕНДАР -->
+                <section class="page-section" id="page-calendar">
+                    <div class="page-heading">
+                        <div>
+                            <span class="eyebrow">ПЛАНУЙ НАВЧАННЯ</span>
+                            <h1>Календар тренінгів</h1>
+                            <p>Дізнавайся про майбутні заходи та плануй свій час.</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-layout">
+                        <div class="content-card calendar-card">
+                            <div class="calendar-toolbar">
+                                <button class="icon-button" id="prevMonth"
+                                        aria-label="Попередній місяць">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <h2 id="calendarMonth"></h2>
+                                <button class="icon-button" id="nextMonth"
+                                        aria-label="Наступний місяць">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="calendar-weekdays">
+                                <span>Пн</span><span>Вт</span><span>Ср</span>
+                                <span>Чт</span><span>Пт</span><span>Сб</span><span>Нд</span>
+                            </div>
+
+                            <div class="calendar-days" id="calendarDays"></div>
+
+                            <div class="calendar-legend">
+                                <span><i class="legend-dot"></i> Є тренінг</span>
+                                <span><i class="legend-dot today-dot"></i> Сьогодні</span>
+                            </div>
+                        </div>
+
+                        <div class="content-card events-card">
+                            <div class="card-heading">
+                                <div>
+                                    <h3 id="selectedDateTitle">Найближчі події</h3>
+                                    <p>Натисни на дату в календарі</p>
+                                </div>
+                            </div>
+                            <div id="calendarEventList" class="calendar-event-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- НОВИНИ -->
+                <section class="page-section" id="page-news">
+                    <div class="page-heading">
+                        <div>
+                            <span class="eyebrow">БУДЬ У КУРСІ</span>
+                            <h1>Новини та оголошення</h1>
+                            <p>Важливі події, анонси та новини нашого проєкту.</p>
+                        </div>
+                    </div>
+
+                    <div class="news-grid full-news-grid" id="allNews"></div>
+                </section>
+
+                <!-- НАЛАШТУВАННЯ -->
+                <section class="page-section" id="page-settings">
+                    <div class="page-heading">
+                        <div>
+                            <span class="eyebrow">ПЕРСОНАЛІЗАЦІЯ</span>
+                            <h1>Налаштування</h1>
+                            <p>Керуй своїм профілем та особистими даними.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card settings-card">
+                        <div class="settings-heading">
+                            <div class="avatar settings-avatar">Ю</div>
+                            <div>
+                                <h3>Особисті дані</h3>
+                                <p>Інформація твого профілю</p>
+                            </div>
+                        </div>
+
+                        <form id="profileForm" class="settings-form">
+                            <label>
+                                Ім'я
+                                <input type="text" id="firstName" value="Юрій" required>
+                            </label>
+
+                            <label>
+                                Прізвище
+                                <input type="text" id="lastName" value="" placeholder="Введи прізвище">
+                            </label>
+
+                            <label>
+                                Клас
+                                <input type="text" id="class" value="" placeholder="10A">
+                            </label>
+                            <label>
+                                Школа
+                                <input type="text" id="school" value="" placeholder="Повна назва закладу">
+                            </label>
+
+                            <button type="submit" class="primary-button" onclick="openProvingWindow(this)">
+                                Зберегти зміни
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card preferences-card">
+                        <h3>Інтерфейс</h3>
+                        <div class="setting-row">
+                            <div>
+                                <strong>Сповіщення про новини</strong>
+                                <p>Показувати індикатор нових оголошень.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="notificationsToggle" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="page-footer">
+                    <span>© 2026 21 Skills Lab</span>
+                    <span>Learn &gt; Do &gt; Share &gt; Lead</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-window">
+            <button class="confirm-close" onclick="closeProvingWindow()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="confirm-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h2>Підтвердження змін</h2>
+            <p>Для збереження змін введіть пароль від свого акаунта.</p>
+
+            <form id="confirmForm">
+                <label for="confirmPassword">Ваш пароль</label>
+
+                <div class="confirm-input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Введіть пароль"
+                        required
+                        autocomplete="current-password"
+                    >
+                    <button type="button" id="toggleConfirmPassword">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+
+                <p class="confirm-error" id="confirmError"></p>
+
+                <div class="confirm-actions">
+                    <button type="button" class="confirm-cancel" onclick="closeProvingWindow()">
+                        Скасувати
+                    </button>
+
+                    <button type="submit" class="confirm-submit">
+                        Підтвердити
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="confirm-overlay" id="leaveOverlay">
+        <div class="confirm-window">
+            <button class="confirm-close" onclick="closeLogOutWindow()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="confirm-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h2>Точно бажаєте вийти з акаунту?</h2>
+
+            <div class="confirm-actions">
+                <button type="button" class="confirm-cancel" onclick="closeLogOutWindow()">
+                    Скасувати
+                </button>
+
+                <button type="submit" class="confirm-submit" onclick="LogOut()">
+                    Підтвердити
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/profile.js"></script>
+</body>
+</html>
