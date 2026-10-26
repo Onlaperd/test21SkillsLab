@@ -398,7 +398,7 @@ function closeLogOutWindow(){
 
 function LogOut(){
     const hasToken = document.cookie
-    window.location.href = "/frontend/main.html"
+    window.location.href = "/main.html"
 }
 
 
