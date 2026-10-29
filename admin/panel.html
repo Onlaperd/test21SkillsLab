@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмінпанель | 21 Skills Lab</title>
+    <link rel="stylesheet" href="/frontend/css/panel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="./adminPanel.js" defer></script>
+</head>
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+            <a href="/frontend/index.html" class="admin-logo">
+                <span class="logo-mark">21</span>
+                <span>Skills Lab<small>ADMIN PANEL</small></span>
+            </a>
+
+            <div class="sidebar-caption">УПРАВЛІННЯ</div>
+
+            <nav class="admin-navigation">
+                <button class="nav-item active" data-section="dashboard">
+                    <span>⌂</span> Огляд
+                </button>
+
+                <button class="nav-item" data-section="tasks">
+                    <span>▤</span> Завдання
+                </button>
+
+                <button class="nav-item" data-section="issues">
+                    <span>⚑</span> Проблеми
+                </button>
+
+                <button class="nav-item" data-section="steps">
+                    <span>↗</span> Наступні кроки
+                </button>
+
+                <button class="nav-item" data-section="news">
+                    <span><i class="fa-solid fa-newspaper"></i></span> Новини
+                </button>
+
+                <button class="nav-item" data-section="finance">
+                    <span>₴</span> Фінанси
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-status">
+                    <span class="online-dot"></span>
+                    <div>
+                        <strong>Режим редагування</strong>
+                        <small>Локальна версія</small>
+                    </div>
+                </div>
+
+                <a href="/frontend/report.html" class="back-to-report">
+                    ← Переглянути звіт
+                </a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <span class="topbar-caption">21 SKILLS LAB / ADMIN</span>
+                    <h1 id="pageTitle">Огляд проєкту</h1>
+                </div>
+
+                <a href="/frontend/report.html" class="preview-button">
+                    ↗ <span>Публічний звіт</span>
+                </a>
+            </header>
+
+            <div class="admin-content">
+
+                <!-- ОГЛЯД -->
+
+                <section class="admin-section active" id="section-dashboard">
+
+                    <div class="welcome-card">
+                        <div>
+                            <span class="welcome-label">РОБОЧИЙ ПРОСТІР</span>
+                            <h2>Керуємо проєктом<br>разом.</h2>
+                            <p>
+                                Додавай записи, оновлюй інформацію
+                                та стеж за перебігом роботи.
+                            </p>
+                        </div>
+
+                        <div class="welcome-decoration">21</div>
+                    </div>
+
+                    <div class="admin-stats" id="adminStats"></div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Останні записи</h3>
+                                <p>Дані, додані під час поточної сесії.</p>
+                            </div>
+                        </div>
+
+                        <div id="recentEntries"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- ЗАВДАННЯ -->
+
+                <section class="admin-section" id="section-tasks">
+
+                    <div class="section-intro">
+                        <span class="section-tag">ПЛАН РОБОТИ</span>
+                        <h2>Керування завданнями</h2>
+                        <p>Додавай завдання та вказуй їхній поточний стан.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Нове завдання</h3>
+                                <p>Заповни основну інформацію.</p>
+                            </div>
+                        </div>
+
+                        <form id="taskForm" class="admin-form">
+
+                            <div class="form-field">
+                                <label for="taskTitle">Назва завдання</label>
+                                <input
+                                    id="taskTitle"
+                                    name="title"
+                                    type="text"
+                                    placeholder="Наприклад, створення сайту"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="taskDescription">Опис</label>
+                                <textarea
+                                    id="taskDescription"
+                                    name="description"
+                                    placeholder="Що потрібно зробити?"
+                                    rows="3"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="taskStatus">Статус</label>
+                                    <select id="taskStatus" name="status">
+                                        <option value="planned">Заплановано</option>
+                                        <option value="progress">У процесі</option>
+                                        <option value="completed">Виконано</option>
+                                        <option value="blocked">Заблоковано</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="taskProgress">Прогрес, %</label>
+                                    <input
+                                        id="taskProgress"
+                                        name="progress"
+                                        type="number"
+                                        min="0"
+                                        max="100"
+                                        value="0"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="taskResponsible">Відповідальний</label>
+                                <input
+                                    id="taskResponsible"
+                                    name="responsible"
+                                    type="text"
+                                    placeholder="Ім'я або команда"
+                                    required
+                                >
+                            </div>
+
+                            <button class="primary-button" type="submit">
+                                + Додати завдання
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Додані завдання</h3>
+                                <p>Список записів поточної сесії.</p>
+                            </div>
+                        </div>
+                        <div id="adminTaskList"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- ПРОБЛЕМИ -->
+
+                <section class="admin-section" id="section-issues">
+
+                    <div class="section-intro">
+                        <span class="section-tag">КОНТРОЛЬ ПРОБЛЕМ</span>
+                        <h2>Проблеми та труднощі</h2>
+                        <p>Фіксуй перешкоди та способи їх вирішення.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Нова проблема</h3>
+                                <p>Опиши ситуацію та заплановані дії.</p>
+                            </div>
+                        </div>
+
+                        <form id="issueForm" class="admin-form">
+
+                            <div class="form-field">
+                                <label for="issueTitle">Назва проблеми</label>
+                                <input
+                                    id="issueTitle"
+                                    name="title"
+                                    type="text"
+                                    placeholder="Що трапилося?"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="issueDescription">Опис проблеми</label>
+                                <textarea
+                                    id="issueDescription"
+                                    name="description"
+                                    rows="3"
+                                    placeholder="Опиши труднощі..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="issueSolution">Рішення / наступні дії</label>
+                                <textarea
+                                    id="issueSolution"
+                                    name="solution"
+                                    rows="3"
+                                    placeholder="Як плануєте вирішити проблему?"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="issueSeverity">Пріоритет</label>
+                                    <select id="issueSeverity" name="severity">
+                                        <option>Низький</option>
+                                        <option selected>Середній</option>
+                                        <option>Високий</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="issueStatus">Статус</label>
+                                    <select id="issueStatus" name="status">
+                                        <option value="open">Відкрита</option>
+                                        <option value="resolved">Вирішена</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="primary-button" type="submit">
+                                + Додати проблему
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <h3>Зареєстровані проблеми</h3>
+                        </div>
+                        <div id="adminIssueList"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- НАСТУПНІ КРОКИ -->
+
+                <section class="admin-section" id="section-steps">
+
+                    <div class="section-intro">
+                        <span class="section-tag">ПЛАНУВАННЯ</span>
+                        <h2>Наступні кроки</h2>
+                        <p>Визначай пріоритети, відповідальних і терміни.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <h3>Новий крок</h3>
+                        </div>
+
+                        <form id="stepForm" class="admin-form">
+
+                            <div class="form-field">
+                                <label for="stepTitle">Назва</label>
+                                <input
+                                    id="stepTitle"
+                                    name="title"
+                                    type="text"
+                                    placeholder="Що потрібно зробити?"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="stepDescription">Опис</label>
+                                <textarea
+                                    id="stepDescription"
+                                    name="description"
+                                    rows="3"
+                                    placeholder="Деталі завдання..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="stepResponsible">Відповідальний</label>
+                                    <input
+                                        id="stepResponsible"
+                                        name="responsible"
+                                        type="text"
+                                        placeholder="Ім'я або команда"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="stepDeadline">Дедлайн</label>
+                                    <input
+                                        id="stepDeadline"
+                                        name="deadline"
+                                        type="date"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <button class="primary-button" type="submit">
+                                + Додати наступний крок
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <h3>Заплановані кроки</h3>
+                        </div>
+                        <div id="adminStepList"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- НОВИНИ -->
+
+                <section class="admin-section" id="section-news">
+                    <div class="section-intro">
+                        <span class="section-tag">НОВИНИ</span>
+                        <h2>Додавай новини</h2>
+                        <p>Добавляй актуальні новини</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <h3>Нова новина</h3>
+                        </div>
+
+                        <form id="newsForm" class="admin-form">
+
+                            <div class="form-field">
+                                <label for="newsTitle">Назва</label>
+                                <input
+                                    id="newsTitle"
+                                    name="title"
+                                    type="text"
+                                    placeholder="Заціклавлююча назва"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="newsDescription">Опис</label>
+                                <textarea
+                                    id="newsDescription"
+                                    name="description"
+                                    rows="3"
+                                    placeholder="Деталі новини..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-field news-upload-field">
+                                <label for="newsImages">Фото новини</label>
+
+                                <label for="newsImages" class="news-upload">
+                                    <span class="news-upload-icon">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    </span>
+                                    <span class="news-upload-title">Натисни, щоб додати фото</span>
+                                    <span class="news-upload-hint">PNG, JPG або WEBP · Можна декілька</span>
+                                </label>
+
+                                <input
+                                    id="newsImages"
+                                    name="images"
+                                    type="file"
+                                    accept="image/*"
+                                    multiple
+                                    required
+                                >
+
+                                <div id="addedPhotos" class="added-photos"></div>
+                                <button type="button" id="clearPhotos">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Очистити фото
+                                </button>
+                            </div>
+
+                            <button class="primary-button" type="submit">
+                                + Додати новину
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+
+
+                <!-- ФІНАНСИ -->
+
+                <section class="admin-section" id="section-finance">
+
+                    <div class="section-intro">
+                        <span class="section-tag">ФІНАНСОВА ПРОЗОРІСТЬ</span>
+                        <h2>Фінансові операції</h2>
+                        <p>Обліковуй отримані кошти та фактичні витрати.</p>
+                    </div>
+
+                    <div class="admin-stats" id="financeStats"></div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Нова операція</h3>
+                                <p>Вкажи тип, суму та призначення коштів.</p>
+                            </div>
+                        </div>
+
+                        <form id="financeForm" class="admin-form">
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="financeType">Тип операції</label>
+                                    <select id="financeType" name="type">
+                                        <option value="income">Надходження</option>
+                                        <option value="expense">Витрата</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="financeAmount">Сума, грн</label>
+                                    <input
+                                        id="financeAmount"
+                                        name="amount"
+                                        type="number"
+                                        min="0.01"
+                                        step="0.01"
+                                        placeholder="0.00"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="financeTitle" id="financeTitleLabel">
+                                    Джерело надходження
+                                </label>
+                                <input
+                                    id="financeTitle"
+                                    name="title"
+                                    type="text"
+                                    placeholder="Наприклад, грант"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="financeDescription">Деталі операції</label>
+                                <textarea
+                                    id="financeDescription"
+                                    name="description"
+                                    rows="3"
+                                    placeholder="На що отримані або витрачені кошти?"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="financeDate">Дата операції</label>
+                                <input
+                                    id="financeDate"
+                                    name="date"
+                                    type="date"
+                                    required
+                                >
+                            </div>
+
+                            <button class="primary-button" type="submit">
+                                + Додати операцію
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-heading">
+                            <h3>Історія операцій</h3>
+                        </div>
+                        <div id="adminFinanceList"></div>
+                    </div>
+
+                </section>
+
+                <footer class="admin-footer">
+                    <span>21 Skills Lab</span>
+                    <span>Панель керування проєктом</span>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

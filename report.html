@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звітність | 21 Skills Lab</title>
+    <link rel="stylesheet" href="./css/report.css">
+    <link rel="icon" href="./resources/logo.png">
+    <script src="./report.js" defer></script>
+</head>
+<body>
+
+    <header class="report-header">
+        <a href="./" class="report-logo">
+            <span class="logo-mark">21</span>
+            <span>Skills Lab</span>
+        </a>
+
+        <nav class="report-nav">
+            <a href="./">Головна</a>
+            <a href="#tasks">Завдання</a>
+            <a href="#finance">Фінанси</a>
+        </nav>
+
+        <span class="report-public-label">
+            <span></span>
+            Публічний звіт
+        </span>
+    </header>
+
+    <main class="report-container">
+
+        <section class="report-hero">
+            <div>
+                <span class="section-eyebrow">ВІДКРИТІСТЬ І РЕЗУЛЬТАТИ</span>
+                <h1>Звітність <span>проєкту.</span></h1>
+                <p>
+                    Розповідаємо, що вже зроблено, над чим працюємо
+                    та які кроки чекають на нас попереду.
+                </p>
+            </div>
+
+            <div class="report-updated">
+                <span class="updated-dot"></span>
+                <div>
+                    <strong>Стан проєкту</strong>
+                    <span id="reportUpdated">Завантаження...</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="overview-grid" id="overview"></section>
+
+        <section class="report-section" id="tasks">
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ПЛАН РОБОТИ</span>
+                    <h2>Наші завдання</h2>
+                    <p>Відстежуйте виконання кожного етапу проєкту.</p>
+                </div>
+
+                <span class="section-counter" id="taskCounter"></span>
+            </div>
+
+            <div class="task-filters" id="taskFilters"></div>
+
+            <div class="task-list" id="taskList"></div>
+        </section>
+
+        <section class="report-section" id="issues">
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ЩО ПОТРЕБУЄ УВАГИ</span>
+                    <h2>Проблеми та труднощі</h2>
+                    <p>Фіксуємо перешкоди й те, як плануємо їх подолати.</p>
+                </div>
+            </div>
+
+            <div class="issues-grid" id="issuesList"></div>
+        </section>
+
+        <section class="report-section" id="next-steps">
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ПЛАНУВАННЯ</span>
+                    <h2>Наступні кроки</h2>
+                    <p>Що потрібно зробити далі та хто за це відповідає.</p>
+                </div>
+            </div>
+
+            <div class="next-steps-list" id="nextStepsList"></div>
+        </section>
+
+        <section class="report-section finance-section" id="finance">
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ФІНАНСОВА ПРОЗОРІСТЬ</span>
+                    <h2>Фінансова звітність</h2>
+                    <p>Надходження, витрати та доступні кошти проєкту.</p>
+                </div>
+
+                <span class="finance-period" id="financePeriod"></span>
+            </div>
+
+            <div class="finance-overview" id="financeOverview"></div>
+
+            <div class="finance-columns">
+                <div class="finance-panel">
+                    <div class="panel-heading">
+                        <h3>Надходження</h3>
+                        <span class="panel-icon income-icon">↗</span>
+                    </div>
+
+                    <div id="incomeList"></div>
+                </div>
+
+                <div class="finance-panel">
+                    <div class="panel-heading">
+                        <h3>Витрати</h3>
+                        <span class="panel-icon expense-icon">↙</span>
+                    </div>
+
+                    <div id="expenseList"></div>
+                </div>
+            </div>
+
+            <p class="finance-note" id="financeNote"></p>
+        </section>
+
+        <footer class="report-footer">
+            <a href="./" class="report-logo">
+                <span class="logo-mark">21</span>
+                <span>Skills Lab</span>
+            </a>
+
+            <p>Learn-Do-Lead</p>
+
+            <span id="reportFooterDate"></span>
+        </footer>
+    </main>
+</body>
+</html>

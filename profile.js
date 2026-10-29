@@ -1,6 +1,6 @@
 const skills = [
-    { name: "AI Literacy", learned: true, practiced: false, shared: true },
-    { name: "Cyber Safety", learned: true, practiced: false, shared: true },
+    { name: "AI Literacy", learned: true, practiced: false, shared: false },
+    { name: "Cyber Safety", learned: true, practiced: false, shared: false },
     { name: "Digital Content", learned: true, practiced: true, shared: false },
     { name: "Communication", learned: true, practiced: true, shared: true },
     { name: "Critical Thinking", learned: false, practiced: false, shared: false },
@@ -155,12 +155,6 @@ document.querySelectorAll("[data-page]").forEach(button => {
         showPage(button.dataset.page);
     });
 });
-
-function getGradeClass(grade) {
-    if (grade >= 10) return "";
-    if (grade >= 7) return "medium";
-    return "low";
-}
 
 function renderNews(containerId, limit = news.length) {
     const container = document.getElementById(containerId);
@@ -398,7 +392,7 @@ function closeLogOutWindow(){
 
 function LogOut(){
     const hasToken = document.cookie
-    window.location.href = "/main.html"
+    window.location.href = "./"
 }
 
 
